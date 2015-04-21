@@ -1,0 +1,12 @@
+#turbo
+Sub Main
+
+	
+	:Loop
+	/doability Forage
+	/delay 5
+	/autoinv
+	/goto :Loop
+
+	
+/return

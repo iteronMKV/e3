@@ -1,0 +1,21 @@
+--------- To Dos:
+
+*** 5.1 Thoughts
+
+	- Create an event to allow users to search for settings, and change those settings on the fly
+	Something that would function much like the help file, but instead give you a read-out of different settings to toggle
+
+1. Create a default routes file, with routes from the guild lobby to common destinations
+
+2. Set up some type of fix for 'you can use the ability X again in Y minute(s) Z seconds
+	This should be easy enough to set up as event that creates a timer.
+
+3. Fix Auto / manual toggle for loot modes
+
+4. Fix Auto-forage ( this is very very very...very minor )
+
+5. Add auto trade functions. Possibly auto accept trade with bots and a /bc notification when a non-bot is trading with a bot?
+
+(To Finish)
+**** drag corpses
+**** Add a function to cast a buff on a given bot

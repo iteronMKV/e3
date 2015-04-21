@@ -1,0 +1,50 @@
+#turbo
+Sub Main
+
+
+/bct Alfheim //invite Fjorgyn
+/delay 2
+/bct Alfheim //invite Nikodim
+/delay 2
+/bct Alfheim //invite Odist
+/delay 2
+/bct Alfheim //invite Sidtech
+/delay 2
+/bct Alfheim //invite Nikolai
+/delay 2
+
+/bct Lyricist //invite Helheim
+/delay 2
+/bct Lyricist //invite Eljudnir
+/delay 2
+/bct Lyricist //invite Okolnir
+/delay 2
+/bct Lyricist //invite Lyngvi
+/delay 2
+/bct Lyricist //invite Fensalir
+/delay 2
+
+/bct Versifier //invite Gullveig
+/delay 2
+/bct Versifier //invite Vigrid
+/delay 2
+/bct Versifier //invite Hermod
+/delay 2
+/bct Versifier //invite Caracal
+/delay 2
+/bct Versifier //invite Aegir
+/delay 2
+
+/bct Sonne //invite Zossimov
+/delay 2
+/bct Sonne //invite Rodion
+/delay 2
+/bct Sonne //invite Pyotr
+/delay 2
+/bct Sonne //invite Sidmont
+/delay 2
+/bct Sonne //invite Amun
+/delay 2
+
+
+/return 

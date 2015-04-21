@@ -1,0 +1,336 @@
+--------- To Dos:
+
+*** 5.1 Thoughts
+
+	- Create an event to allow users to search for settings, and change those settings on the fly
+	Something that would function much like the help file, but instead give you a read-out of different settings to toggle
+
+1. Create a default routes file, with routes from the guild lobby to common destinations
+
+2. Set up some type of fix for 'you can use the ability X again in Y minute(s) Z seconds
+	This should be easy enough to set up as event that creates a timer.
+
+3. Fix Auto / manual toggle for loot modes
+
+4. Fix Auto-forage ( this is very very very...very minor )
+
+5. Request- Add auto trade functions. Possibly auto accept trade with bots and a /bc notification when a non-bot is trading with a bot?
+
+(To Finish) for r5
+**** Change heal chain to use /rs
+**** drag corpses
+**** Add a function to cast a buff on a given bot
+
+
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r6 Change log:
+
+--------- Fixed:
+
+	- Fixed an issue with bards not memming spells for melodies
+	- Revamped heal chain to operate out of /rs instead of universal channels.
+	- Fixed issues with healers not syncing up on heal chains
+	- Fixed issues saving multiple groups with the same name
+
+--------- Changed:
+	
+	
+--------- Added:
+
+	- You can now specify /MaxMana| and /MinHP| in your ini spell entries.
+	- Added a toggle to loot corpses after using the corpse summoner under General Settings.ini > [Corpse Summoning] > Loot After Summoning (On/Off).
+	- Added alerts for the stampede in tactics
+	- Added an event to report when a toon gets a character flag.
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r5 Change log:
+
+--------- Fixed:
+
+	- Fixed an issue that was causing bots to assist after being rezzed.
+	- Heal Chain using incorrect spell names.  There was a issue with some users having "Complete Heal" while others were using "Complete Healing".  The macro should now chose the appropriate spell.
+	- Rogue Auto-Hide
+	- Minor tweak to consent me function
+	- An issue that would cause all bots to stick behind on an assist call, regardless of the position listed in the ini.
+	- Fixed a minor issue with Auto-Evade that was causing hide to be engaged before a rogue's sneak attack discipline could be activated.  Sneak attack disciplines should activate as soon as both the disc, and hide, are available.
+	- Fixed an issue with BotBuffs, that was causing a mistarget.
+
+--------- Changed:
+	
+	- Users can now request buffs from and add aliases for items as well as spells.
+	- Added a retry timer to click yes and click no functions.
+	- Revamped the group up function to fix issues caused with the way groups were being saved.
+
+--------- Added:
+
+	- Added debug toggles for individual macro .incs to give users the option to debug smaller portions of the macro.
+	- Added /fixcorpses function.  New function that hides then shows all corpses, in an attempt to reset incorrect corpse locations.  (when you see a corpse one place but it's actually somewhere else.)
+	- Gather corpse function.  Use /gathercorpses to pull all consented corpses within range to you.
+	- AE Rez function.  Use /AERez to rez all nearby corpses.
+	- Auto-Tribute.
+		Auto-Tribute is a new function that attempts to conserve tribute points by giving users options to dynamically activate and deactivate tribute.
+		Users can use /tribute "on/off" to toggle tribute on or off for all bots.  Tribute will automcatically be deactivated when you zone, or have been standing idle for 10 minutes or more.
+		Alternatively users can add a timer setting to toggle tribute for a given amount of time.  Ex /tribute On|30m, or /tribute Off|15m.
+		Finally, users can also designate 'tribute zones' by using the command /tributezone "On/Off".  Tribute will automatically be toggled on, and stay on, whenever you enter a designated 'tribute zone'.
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r4 Change log:
+
+--------- Fixed:
+
+	- Fixed an issue that caused attack to turn back on after enrage.
+
+--------- Changed:
+
+	- Bots will no longer Auto-Assist on spells.  I had set up the Auto-Assist to detect the casting of detrimental spells, but I really don't think I like the changes.
+		Bots will now only Auto-Assist based on a melee engage.  Otherwise, they must be sent in manually using /assiston.
+		
+	
+
+--------- Added:
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r3 Change log:
+
+--------- Fixed:
+
+	- a non numeric encounter in BegForBuffs.inc that caused crashes when you were sent a tell containing an integer.
+	- an issue that was causing aliases not to update.
+	- cleric self buffs
+	- pet classes not summoning pets
+
+--------- Changed:
+
+--------- Added:
+	
+	- Added a more complete spell alias file.  This may need to be combed through, and added to.
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r2 Change log:
+
+--------- Fixed:
+
+	- Fixed an issue with casting bot buffs that had a range of 0.  Fixed by adding AERange to the check.
+
+--------- Changed:
+
+--------- Added:
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.1 r1 Change log:
+
+--------- Fixed:
+
+	- Fixed a problem with spell timers when cast from items while debuffing
+	- Removed a few unused ini entries for warriors and rogues
+	- Fixed a typo in HoT that was causing it not to work
+	- Fixed an issue with warrior provoke disciplines being used as default discs
+	- Fixed issues with /CheckFor| in the [Buffs] section of the Bot.inis.  Spells like Elemental Siphon should work properly now
+
+--------- Changed:
+
+	- Revamped v5.0s clumsy, over-complicated settings files.
+		In an effort to try and make e3's settings files more user friendly, I've reorganized File Paths.ini, e3 Settings.ini, and Functions By Class.ini into
+		two new settings files; General Settings.ini, and Advanced Settings.ini.  The new files will give the user a more comprehensive view of all the various
+		macro settings, and how they tie together.  I've also begun adding additional settings that will allow users to customize e3 more than ever.
+
+--------- Added:
+	
+	- Added enchanter chain rune.  Use /runeOn /runeOff, or /runeOn NAME, /runeOff NAME to enable enchanter chain runes.  (You must have a Chain Rune spell defined in your enchanters ini)
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+v5.0 r14 Change log:
+
+--------- Fixed:
+	
+	- Fixed an issue in e3_Casting.inc caused by a non-numeric comparison.  Not sure exactly what caused this error, the code looks right, but it apparently wasn't working correctly.
+		I rewrote the line and tweaked it a bit.  Seems to be working well.  Let me know if you have any more issues.
+	- Tweaked Background_events script to be more responsive to various commands
+	- Fixed issues with using /only and /not to specify characters with similar names
+	- Various typos in example inis
+	- Heal issues caused by not setting 'Who to Heal' and 'Who to HoT' in your character inis
+	- Tweaked Follow command to follow the ChatSender, when no target is specified
+	- Fixed an issue caused by casting items that have no defined equippable slot.  Previously this caused an error when trying to determine what slot to place the item
+	- Fixed /varset minMana not found error
+	- Fixed /varset attemptedCast not found error
+	- Typo that caused /ony and /not to malfunction for VetAAs
+	
+--------- Changed:
+
+	- Changed how aliases update.  Found out it was unnecessary to delete existing aliases before creating them.  This should improve the update time substantially
+	- Tweaked alias updates so that only one character will preform them at a time.  This should further increase update time when starting the macro on multiple characters at the same time
+
+--------- Added:
+
+	- /clickNo.  Works just like /clickyes, but with the opposite effect
+	- /SetAAXP %.  Sets Alternate Advancement XP on specified chars
+	- /dpw for /bc distribute pet weapons
+	- /petweapons for /bc pet weapons
+	- Re-Implemented Life Taps for Necros and SKs.  You can now list multiple life taps with different healpcts
+		ex
+			LifeTap#1=Touch of Mujaki/Gem|1/HealPct|70
+			
+	- Re-Implemented Mana Dumps for necros.  Ini entries have changed a bit, but the idea is still the same.	
+		Ex
+			
+			Mana Dump (On/Off)=On
+			Who to Mana Dump=Healers
+			Mana Dump Engage Pct=60
+			Mana Dump#1=Sedulous Subversion/gem|7
+			Mana Dump#2=Covetous Subversion/gem|8
+			
+				Just like /only and /not, users can specify Who to Mana Dump using class types, class shortnames, class names, or bot names.
+				Specify when to start mana dumping clients with the aptly named, Mana Dump Engage Pct.
+				Use Mana Dump#1,#2,#3 etc for Listing spells, items, aas, and discs to cast mana dump spells from.  Just like all other ini entries, Gem|#, MinMana|# etc will work with these entries.
+	
+	- Added /manaDump command for necros.  This command can be used with a variety of suffixes to set various parts of the mana dump function.
+	
+		*** You must have mana dump spells set in your ini to use in game toggles.
+		
+		/manaDump On|Off - Toggles mana dump on or off.  If no targets are set in your necros ini, mana dump will default to all.  If no engage pct is listed, it will default to 99.
+		/manaDump Class,Class ShortName,ClassType,Name - Toggles mana dump on, and/or sets new mana dump targets. You may list multiple targets in a single command, and they can be any variety of specifications
+			Ex. /manaDump Healers,Ekove,MAG,Enchanter (this would target all healers, the bot names ekove, all magicians, and all enchanters.
+		/manaDump # - Sets a new Mana Dump Engage Pct.  This can be added by itself, or in addition to or in combination with the targets
+			Ex. /manaDump 65 (This would set the engage pct to 65%)
+				/manaDump Healers,Casters 65 (Would mana dump casters and healers below 65% mana)
+		
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+r13 Change log:
+
+--------- Fixed:
+
+	- Mismatched bracket in Cleric.inc
+
+--------- Changed:
+
+	- Removed Heals Debug spam.  I'm so used to that stuff, sometimes I don't even notice it's there.
+
+--------- Added:
+	
+	- Added, /MinEnd|# parameter to [Abilities].  You can add this to any ability to list a minimum endurance for said ability.
+	- Added, /MinMana|# parameter to shaman's auto-canni.  Use this parameter to specify a Min mana to engage canni at.  (This defaults to 90%)
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+r12 Change log:
+
+--------- Fixed:
+
+	- Fixed issues causing aliases to be written incorrectly.  This was caused by a syntax issue from a recent change.
+	- Several issues with heals, including tank heals and HoTs.
+	- Added /debugon and /debugoff aliases.  These we not being added previously.
+	- Fixed an issue with BuildArray caused by a typo
+	- Issues with patch heals, and spam related to said issues. 
+		I'm still not sure what exactly was causing this, but the error was coming from a /for loop using an array which was variable, ${${healArray_Name}.Size}
+		I have no idea why this was causing an error, since that portion of the script is not being called when the error is occuring, but I have rewritten Heals
+		using static array names ${tankHeals.Size} and ${patchHeals.Size}, and it's working perfectly.  I blame MQ2...		
+
+--------- Changed:
+
+	- Changed the syntax for Swap related ini entries.  The new syntax matches the rest of the file, using |s and /s to seperate; item|slot/item|Slot/Item|slot.  
+		Ex.  
+			One Handers=Chaotic Black Scimitar|Mainhand/Hammer of the Timeweaver|Offhand
+			Two Hander=Lodestar|mainhand
+
+	- Tweaked setup and updates so they are a little nicer on the users system.
+	- Removed 'Heal Spell#' list from the [Heals] section of Bot Inis.  This has been replaced with Tank Heal#1, and Patch Heal#1.  Tank Heals are cast only on tanks, patches on everyone else.
+		This will allow you to set different heal percents depending on the bots roll in combat.
+	- MedBreak has been changed!  I've set up medbreak to opperate more like an Auto-Sit function for those who want to use it that way.
+		- By default, bots will NOT automatically end medbreak when attacked. (This can be toggled on or off in e3 Settings.ini)
+
+		The commands are the same as before,
+			'/medon' Bots will automatically sit until full mana, then end medbreak
+			'/medon hold' Bots will automatically sit, indefinitely
+			'/medoff' to end medbreak
+
+--------- Added:
+
+	- Tank Heals (See Changed: for details)
+	- MedBreak has been re-enabled.
+
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+
+
+r11 Change log:
+
+--------- Fixed:
+
+	- Issue with r10s setup.  Apparently I bumped some keys while having an active cursor in the text box, which broke the line that called for an update.
+	- Revamped e3 Sell.inc.  Several under the hood changes that address issues involved in selling items that merchants dont want.
+	- A typo with Life Support that was causing it to malfunction
+	- Included e3 Sell.inc, which was missing from the last build....my bad
+
+--------- Changed:
+
+	- Changed how e3 updates.  e3 should automatically update itself whenever you get a new build, from now on, adding new ini settings, and aliases without having to delete them first.
+
+--------- Added:
+
+	- Enabled e3 Sell.inc
+	- You can add the tag /sell to any entry in your loot settings.ini to have your bots automatically sell these items when you use /autosell
+		Ex.  Fish Scales 5c(100)=Keep|100/Sell
+	- Added 'Destroy Unsold Items(On/Off)' setting to e3 Settings.ini.  Like the name implies, this toggles whether or not to destroy items labeled 'sell' that vendors do not want to buy.
+	- Added Auto-Sell aliases, /syncInventory and /autoSell
+	- Included a fairly extensive Spell Aliases.ini so people will have some default spell aliases.
+
+
+	
+===============================================================================================================================================================================================
+===============================================================================================================================================================================================
+
+
+
+r10 change log:
+
+--------- Fixed:
+
+	- Fixed serveral issues involving healers not having heals set up in there starter inis
+	- Fixed Combat Buffs.  This was caused by an error in syntax, because of the change to the new casting system.  Spells, items, AAs, etc, must always be the first parameter in any ini entry
+	- Fixed an issue with Celestial regen that caused it to pop prematurely...
+	- Finished Spell Aliases File, this will be included in e3 builds from now on
+	- Fixed issues with /only and /not, these should work correctly now.
+	- Fixed issues caused with looting items that have ':'s in their names.  The ':'s caused these items to be misread from the ini, and returned incorrect loot settings
+
+--------- Changed:
+
+	- Tweaked several minor details in heals
+	- Changed WriteToIni to automatically change ':'s to ';'s, to avoid issues when importing variables from entries with names like Spell: etc
+	- Added a check to the end of MoveTo (e3_Functions.inc) to wait until a bot has stopped moving before proceeding in the script.
+	- Fixed an issue that could cause bard melodies to break down when turning off assist
+	- The Loot Settings.ini has had a bit of a face-lift.  
+		Settings are still the same, keep, destroy, and skip. However now you can set how many of an item you want to keep using /keep|#
+		for example, 
+		Bat Wings=Keep|50
+		Bone Chips=Destroy
+
+--------- Added:
+
+	- Enabled backstab, again.
+	- Enabled rogue 'sneak attack' disciplines.  These will now work when listed in your abilities section
+	- Enabled warrior bellows.  These will now work when listed in your abilities section
+	- Fixed mage pet items.  You can list a series of spells, items, etc, to cast, and give to a players pet on command.  Players can simply tell your mage 'pet weapons' for them to run over and pass items out.
+		You can also pass weapons out to multiple people at once using the 'distribute pet weapons' command.  This will create a list of all the pets within 100 units, and hand out weapons to each in turn. 
+	- Enabled corpse summoning once again.  Tweaked a few things, so it should work a little better, and wont require you to list a soulstone, and cost, anymore.
+	- /giveme alias, for requesting buffs from your current target.  ex.  Target a cleric and use /giveme virtue, or target a druid and use /GiveMe SoW etc etc
+	- Added a setting e3 Data for users to add discs for rogue sneak attacks, and warrior provoke discs
+	- Buffcheck on/off toggle for turning buffs on and off

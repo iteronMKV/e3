@@ -1,0 +1,36 @@
+#turbo
+Sub Main
+
+	/if (${Me.Sitting}) {
+	  /stand
+	}
+	
+	:Loop
+	/if (!${Me.SpellReady[7]}) {
+		/delay 20
+		/autoinv
+		/delay 20
+		/autoinv
+		/delay 20
+		/autoinv
+		/delay 20
+		/autoinv
+		/delay 20
+		/autoinv		
+		/goto :Loop
+	} else {
+		/cast 7
+		/delay 50
+		/autoinv
+		/delay 10
+		/autoinv
+		/delay 10
+		/autoinv
+		/delay 10
+		/autoinv
+		/delay 10
+		/autoinv
+		/goto :Loop
+	}
+
+/return
